@@ -1,0 +1,12 @@
+Checking for files I found one owned by <flag00> called '/usr/sbin/john'.
+It's content is 'cdiiddwpgswtgt', which after trying it out in CyberChef with
+ROT13 Brute Force showed it's encrypted with ROT11 and gave the password of
+user <flag00>.
+
+-----------------------------------------------
+flag00 password:	nottoohardhere
+token:				x24ti5gi3x0ol2eh4esiuxias
+-----------------------------------------------
+
+Links:
+https://cyberchef.org/#input=YWJjZGVmZw

@@ -1,0 +1,17 @@
+There is a perl http server that listens in port 4646 and expects 2 params x, y.
+The interesting part and exploitable to command injections is the egrep line,
+but the string in x that will run is first transformed to uppercase and cannot
+have any whitespace because it will remove anything found after it.
+
+Because of this limitation we have to create a file with a name in uppercase,
+and run it with a generic path using *, so it doesn't have any lowercase chars.
+
+Create a file like '/tmp/TOLKIEN' with 'getflag | wall', give it -x permissions
+and run:
+
+```curl -d x='$(/*/TOLKIEN)' localhost:4646```
+
+-----------------------------------------------
+flag12 password:
+token:				g1qKMiRpXf53AWhDaU7FEkczr
+-----------------------------------------------

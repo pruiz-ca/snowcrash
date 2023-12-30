@@ -1,0 +1,20 @@
+There is a token file that contains apparently random characters. Also there is
+a binary that will encode the string passed as an argument.
+
+I can see that the token file was genereated using this encoding binary. And
+after a few tests I can see the encoding function is adding each character the
+value of its own index in the string.
+
+I can write a simple script in python to decode the token file:
+
+````
+with open('token', 'rb') as f:
+    for i, c in enumerate(f.read()):
+        decoded = chr(c - i) if chr(c) != '\n' else '\n'
+        print(decoded, end='')
+```
+
+-----------------------------------------------
+flag09 password:	f3iji1ju5yuevaus41q1afiuq
+token:				s5cAJpM8ev6XHw998pRWG728z
+-----------------------------------------------

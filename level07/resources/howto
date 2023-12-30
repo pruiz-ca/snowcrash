@@ -1,0 +1,13 @@
+There is a binary that after inspection prints $s which is the env variable
+LOGNAME.
+
+Using minishell evaluation tricks we can set:
+
+```export LOGNAME='echo $(getflag)```
+
+This will execute the command inside the variable when running the binary.
+
+-----------------------------------------------
+flag07 password:
+token:				fiumuikeil55xe9cu4dood66h
+-----------------------------------------------

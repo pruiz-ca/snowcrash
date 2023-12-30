@@ -1,0 +1,21 @@
+There is a binary that seems to be a get_next_line. It has rws permissions, that
+means that the process will belong to the owner of the file.
+
+Inspecting the code with ltrace and ghidra I can see that it's evaluating the
+following function:
+
+```strstr(argv[1], 'token')```
+
+Meaning that if the word 'token' is found in the name of the file given as an
+argument, the program will exit.
+
+I can bypass this by using a symlink to 'token' but with a different name.
+
+```ln -s ~/token /tmp/tolkien```
+
+It's important to use absolute paths when creating symlinks.
+
+-----------------------------------------------
+flag08 password:	quif5eloekouj29ke0vouxean
+token:				25749xKZ8L7DkSCwJkT9dyv6f
+-----------------------------------------------

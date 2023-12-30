@@ -1,0 +1,17 @@
+There is a .pcap file that contains captured packets. It can be inspected using
+Wireshark.
+
+Analyzing the packets I can see a login message, and then pacakges sending
+individual keystrokes that must be the password. These are all the keystrokes:
+
+```<ft_wandr   NDRel L0L>```
+
+It's weird that there are spaces, after checking the hex value of the character
+I can see it's actually the delete key. So after modifications the password is:
+
+```ft_waNDReL0L```
+
+-----------------------------------------------
+flag02 password:	ft_waNDReL0L
+token:				kooda2puivaav1idi4f57q8iq
+-----------------------------------------------

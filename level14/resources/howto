@@ -1,0 +1,34 @@
+Here there is nothing. As in the previous exercise I can try and change some
+values in the 'getflag' binary. In this case after inspecting the binary I'll
+have to change 2 times the <eax> register, one after the 'ptrace' check to '0'
+and another after the 'getuid()' function with the UID value of user 'flag14',
+3014.
+
+```
+gdb /bin/getflag
+(gdb) b ptrace
+(gdb) r
+(gdb) fin
+(gdb) set $eax 0
+(gdb) b getuid
+(gdb) c
+(gdb) fin
+(gdb) set $eax 3014
+(gdb) s
+```
+
+There's another way and is using 'jump' in GDB. We can direclty jump to the
+instruction where the token is decoded and then printed. For this run:
+
+```
+gdb /bin/getflag
+(gdb) b main
+(gdb) r
+(gdb) jump *0x8048de5
+(gdb) s
+```
+
+-----------------------------------------------
+flag14 password:	7QiHafiNa3HVozsaXkawuYrTstxbpABHD8CPnHJ
+token:				7QiHafiNa3HVozsaXkawuYrTstxbpABHD8CPnHJ
+-----------------------------------------------

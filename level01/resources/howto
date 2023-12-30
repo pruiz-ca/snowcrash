@@ -1,0 +1,17 @@
+After looking for files and checking some common ones that have login info,
+I found the following suspicious line in '/etc/passwd'
+
+```flag01:42hDRfypTqqnw:3001:3001::/home/flag/flag01:/bin/bash```
+
+The second field is the encrypted password. After some research about how to
+crack it I found many recommendations to use John the Ripper. After copying the
+'/etc/passwd' file and executing ```john passwd```, it decrypts and show the
+password for user <flag01>.
+
+-----------------------------------------------
+flag01 password:	abcdefg
+token:				f2av5il02puano7naaf6adaaf
+-----------------------------------------------
+
+Links:
+https://www.openwall.com/john/doc/EXAMPLES.shtml

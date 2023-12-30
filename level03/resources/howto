@@ -1,0 +1,20 @@
+There is an executable file called <level03>. After inspecting it with 'cat' or
+with ghidra I can see that it's calling '/usr/bin/env echo', this means I can
+change the PATH environment variable to execute my own echo command.
+
+```export PATH=/tmp:$PATH```
+
+Now I can create a file called 'echo' in /tmp and execute commands as the owner
+of the executable file. Since the owner is flag03, I can execute the getflag
+command directly.
+
+```
+int main() {
+	system('getflag');
+}
+```
+
+-----------------------------------------------
+flag03 password:
+token:				qi0maab88jeaj46qoumi7maus
+-----------------------------------------------

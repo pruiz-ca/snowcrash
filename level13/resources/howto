@@ -1,0 +1,23 @@
+Here there is only a binary with no apparent exploits. I can try using GDB to
+modify values, specially the value returned by the 'getuid()' function, because
+there is no user with UID=4242 and I cannot change mine.
+
+Usually the values returned in a function are stored in the <eax> register, so
+we have to just change this value when the function returns.
+
+```
+gdb ./level13
+(gdb) b getuid
+(gdb) r
+(gdb) fin
+(gdb) set $eax 4242
+(gdb) n
+```
+
+-----------------------------------------------
+flag13 password:
+token:				2A31L79asukciNyi8uppkEuSx
+-----------------------------------------------
+
+Links:
+https://stackoverflow.com/questions/267674/how-to-inspect-the-return-value-of-a-function-in-gdb

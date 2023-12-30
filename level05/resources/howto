@@ -1,0 +1,22 @@
+In level00 I could see another file owned by <flag05>, it's called
+openarenaserver and when run iterates over all the files in
+'/opt/openarenaserver' and executes the content of the file as a command, with
+a timeout of 5 seconds.
+
+Also after loging in as <level05> there is an 'email' notification which content
+can be seen in '/var/spool/mail/level05'. It shows a crontask to execute
+openarenaserver every 2 minutes.
+
+I can use the 'wall' command to send a message to all users, and show the output
+of the getflag command.
+
+Create a file in '/opt/openarenaserver' with the following content:
+
+```echo $(getflag) | wall```
+
+Then wait for the crontask to execute the file and get the flag.
+
+-----------------------------------------------
+flag05 password:
+token:				viuaaale9huek52boumoomioc
+-----------------------------------------------
